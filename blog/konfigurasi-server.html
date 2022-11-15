@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  
+<!-- Mirrored from vincent.skuravi.com/blog/konfigurasi-server.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Nov 2022 01:33:39 GMT -->
+<head>
+    
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    
+    
+    <title>XT4 / 32</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="css/plugin.css">
+    
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700|Merriweather">
+    
+    
+    
+
+  </head>
+
+ <body>
+
+    
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                
+                
+                <!-- Content Start -->
+                 <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-12 page-body">
+                    	<div class="row">
+                    		
+                            
+                            <div class="sub-title">
+                           		<a href="index.html"><h1>Debian Blog</h1></a>
+                             </div>
+                            
+                            
+                            <div class="col-md-12 content-page">
+                              <div class="col-md-12 blog-post">
+                            	
+                                
+                                <!-- Post Headline Start -->
+                                <div class="post-title">
+                                    <h2>Persiapan Konfigurasi Server Debian</h2> 
+                                   </div>
+                                   <!-- Post Headline End -->
+ 
+                                   <div class="post-title">
+                                    <h3>1. Masuk ke dengan user root</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/1.png" alt="">                                   
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Saat masuk ke debian hal pertama yang harus dilakukan adalah masuk ke terminal dan masuk ke user root menggunakan perintah 'su'.</p>
+                                 
+                                   <div class="post-title">
+                                    <h3>2. Ping Google atau Website Lain</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/2.png" alt="">                                
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Ping google dengan cara 'ping google.com' untuk mengetes koneksi kalian. Jika ada balasan itu berarti koneksi kalian aman jika belum mungkin kalian belum terkoneksi internet atau settingan network virtual machine kalian masih belum benar. Jika balasan tidak berhenti-berhenti tekan 'Ctrl'+'c'
+
+                                  </p>
+                                 
+                                   <div class="post-title">
+                                    <h3>3. Update Repository</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/3.png" alt="">
+                                                                        
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Update repository perlu dilakukan untuk kita memastikan apakah kita sudah mendapat basis data paket yang terbaru. Update repository dengan 'apt-get update'. Lalu tunggu sampai repository selesai terupdate.</p>
+                                 
+                                  
+                                  
+                                  
+                                  <div class="post-title">
+                                    <h3>4. Edit Repository</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/4.png" alt="">
+                                                                        
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Buka repository dengan cara ketik perintah 'nano /etc/apt/source.list' lalu tambahkan repository yang kalian pilih. Kalian bisa melihat rekomendasi repository lokal di <a href="https://www.linuxsec.org/2019/08/repository-lokal-debian-buster.html">sini</a></p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>5. Update Repository Sekali Lagi</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/5.png" alt="">
+                                                                        
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Update repository sekali lagi karena kita baru saja mengedit repository kita maka kita perlu
+                                    mengupdate agar repository yang kita edit berjalan</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>6. Cek Ip Adress</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/6.png" alt="">
+                                                                        
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Selanjutnya untuk mengecek ip adress kalian bisa menggunakan perintah 'ip -c a'. Jika sudah
+                                    cek bagian inet pertama yang bawah dan coba diingat-ingat dalam contoh ini 10.0.2.15</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>7. Konfigurasi Ip Adress</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/7.png" alt="">
+                                                                        
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Sekarang buatlah ip kalian yang baru di file interfaces dengan perintah 'nano /etc/network/interfaces' cara menambahkannya adalah tambahkan 5 baris yang paling bawah seperti pada gambar hanya (ip yang kalian buat harus masih dalam 1 network dengan komputer/laptop kalian). lalu pagari 2 baris diatas yang "auto lo" dan "iface lo" 5 baris yang kalian buat. Note : Jika kalian memakai VM Ware enp0s3 diganti menjadi eth0.</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>8. Restart Network</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/8.png" alt="">
+                                                                        
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Jika kalian sudah membuat ip sendiri restart network kalian dengan perintah 'systemctl restart
+                                    networking' hal ini agar settingan ip yang barusaja kalian buat terupdate di debian kalian.</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>9. Cek Ip Adress Sekali Lagi</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-server/9.png" alt="">
+                                                                        
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Untuk memastikan apakah ip yang kita buat sudah terupdate alangkah baiknya kita
+                                    mengeceknya sekali lagi jika inet yang bawah sudah berganti jadi ip kalian maka itu artinya ip
+                                    kalian sudah terupdate. Jika belum maka ip kalian belum terupdate mungkin ada kesalahan
+                                    penulisan saat membuat ip atau kalian coba reboot ulang menggunakan perintah 'systemctl
+                                    reboot'.</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>Jadi Itulah persiapan yang harus kalian lakukan sebelum konfigurasi server di debian. Jika kalian
+                                      sudah berhasil membuat repository dan membuat ip adress kalian akan bisa konfigurasi server
+                                      dengan aman</h3> 
+                                   </div>
+
+                                    
+                                  <!-- You May Also Like Start -->
+                                  <div class="you-may-also-like margin-top-50 margin-bottom-50">
+                                    <h3>SELANJUTNYA 👇</h3>
+                                     <div class="row">
+                                 
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                      <a href="remote-server.html"><p>REMOTE SERVER</p></a>
+                                     </div>
+                    
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                      <a href="konfigurasi-web-server.html"><p>KONFIGURASI WEB SERVER</p></a>
+                                     </div>
+                    
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                      <a href="Konfigurasi-DNS-server.html"><p>KONFIGURASI DNS SERVER</p></a>
+                                     </div>
+                                    
+                                    </div>
+                                  </div>
+                                  <!-- You May Also Like End -->
+
+                       
+                       <!-- Footer Start -->
+                       <div class="col-md-12 page-body margin-top-50 footer">
+                          <footer>
+						  <!-- UiPasta Credit Start -->
+                          <div class="uipasta-credit">Make With Love by <a href="https://instagram.com/iincen_" target="_blank">Cen</a></div>
+                          <!-- UiPasta Credit End -->
+						  
+                           
+                         </footer>
+                       </div>
+                       <!-- Footer End -->
+                     
+                     
+                  </div>
+                  <!-- Content End -->
+                
+            </div>
+         </div>
+      </div>
+      
+    
+    
+    
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <!-- Back to Top End -->
+    
+    
+    <!-- All Javascript Plugins  -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/plugin.js"></script>
+    
+    <!-- Main Javascript File  -->
+    <script type="text/javascript" src="js/scripts.js"></script>
+
+    
+   </body>
+ 
+<!-- Mirrored from vincent.skuravi.com/blog/konfigurasi-server.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Nov 2022 01:33:55 GMT -->
+</html>

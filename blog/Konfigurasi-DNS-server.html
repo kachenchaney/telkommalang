@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  
+<!-- Mirrored from vincent.skuravi.com/blog/Konfigurasi-DNS-server.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Nov 2022 01:34:21 GMT -->
+<head>
+    
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>XT4 / 32</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="css/plugin.css">
+    
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700|Merriweather">
+
+
+  </head>
+
+ <body>
+
+    
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                
+                
+                <!-- Content Start -->
+                 <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-12 page-body">
+                    	<div class="row">
+                    		
+                            
+                            <div class="sub-title">
+                           		<a href="index.html"><h1>Debian Blog</h1></a>
+                             </div>
+                            
+                            
+                            <div class="col-md-12 content-page">
+                              <div class="col-md-12 blog-post">
+                            	
+                                
+                                <!-- Post Headline Start -->
+                                <div class="post-title">
+                                    <h2>DNS Server Menggunakan Bind9</h2> 
+                                   </div>
+                                   <!-- Post Headline End -->
+ 
+                                   <div class="post-title">
+                                    <h3>1. Pagari Ip Debian kalian</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/1.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Pagari ip debian kalian di file /network/interfaces dengan cara 'nano /etc/network/interfaces' jika kalian sudah sudah masuk pagari ip debian kalian mulai dari "auto enp0s3" sampai gateway. </p>
+                                 
+                                   <div class="post-title">
+                                    <h3>2. Ubah Settingan Network Virtual Machine Dengan NAT Adapter</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/2.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Setelah kalian pagari ip selanjutnya kalian ubah settingan network machine kalian dengan NAT adapter. Hal ini dilakukan agar kita bisa mendownload bind9 karena bind9 hanya bisa didownload menggunakan ip asli debian.</p>
+
+                                 
+                                   <div class="post-title">
+                                    <h3>3. Restart & Reboot</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/3.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Setelah kalian selesai mensetting ip dan network restart network kalian dengan perintah 'systemctl restart networking' lalu agar aman lakukan reboot juga dengan perintah 'systemctl reboot'.</p>
+                                 
+                                  
+                                  
+                                  
+                                  <div class="post-title">
+                                    <h3>4. Cek Ip</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/4.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Setelah selesai reboot kembali ke terminal jangan lupa pakai user root dengan perintah 'su' lalu cek ip kalian dengan perintah 'ip -c a' dan lihat. Jika ip kalian sudah berubah seperti pada gambar maka artinya kalian sudah berhasil dan kalian bisa melanjutkan dengan download bind9</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>5. Install Bind9</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/5.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Download bind9 dengan perintah 'apt-get install bind9' lalu enter dan tunggu sampai bin9 selesai terinstall.</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>6. Cek Status Bind9</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/6.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Cek status bind9 dengan perintah 'systemctl status bind9'. Pastikan bind9 kalian dalam keadaan active.</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>7. Pergi ke Folder Bind</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/7.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Pergi ke folder bind dengan perintah 'cd /etc/bind' lalu liat isi file dengan perintah 'ls'</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>8. Copy File db.local</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/8.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Copy file db.local tapi dengan nama kalian dengan perintah 'cp db.local db.namakalian</p>
+                                                                  
+                                  <div class="post-title">
+                                    <h3>9. Copy File db.127</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/9.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Copy file db.127 dengan ip octet paling belakang kalian dengan printah 'cp db.127 db.ipkalian'. Oktet paling belakang adalah oktet paling kanan dari sebuah ip contoh ip 192.168.43.194 oktet paling belakangnya adalah 194 jadi dalam contoh diatas file yang dibuat adalah db.194.</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>10. Buka File db.ip kalian</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/10.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Buka file hasil copy-an db.127 yang barusan kalian buat dengan perintah 'nano db.ip kalian'</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>11. Edit File db.ipkalian</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/11.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Ubah semua localhost menjadi nama domain kalian (nama domain yang di sites-available) lalu ubah 1.0.0 yang di baris terakhir dengan ip kalian tetapi dari urutan oktet terakhir sampai oktet kedua dalam contoh disini ip saya adalah 192.168.43.194 menjadi 194.43.168 . Jika sudah jangan lupa di save</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>12. Buka File db.nama</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/12.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Buka file hasil copy-an db.local yang kalian buat di no.8 dengan perintah 'nano db.namakalian'</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>13. Edit File db.nama</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/13.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Ubah semua localhost menjadi nama domain kalian (nama domanin yang di folder sites-available) , ubah 127.0.0.1 menjadi ip kalian , lalu hapus baris yang paling bawah</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>14. Pergi ke File named.conf.default-zones</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/14.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Masuk ke file named.conf.default-zones dengan perintah 'nano named.conf.default-zones'</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>15. Edit File named.conf.default-zones</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/15.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Ubah localhost menjadi nama domain kalian lalu ubah db.local menjadi db.namakalian , ubah 127.in-addr.arpa dengan ip kalian oktet ke 2.3.4 lalu ubah db.127 dengan db.ipkalian. Jika sudah jangan lupa di save.</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>16. Masuk Ke File named.conf.options</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/16.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>Masuk ke file named.conf.options dengan perintah 'nano named.conf.options'</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>17. Edit File named.conf.options</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/17.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>hilang kan tanda // di baris ( forwarders{ ) sampai baris ( }; ) lalu ubah 0.0.0.0; menjadi ip kalian seperti dicontoh. </p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>18. Edit File resolv.conf</h3> 
+                                   </div>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40">
+                                   <img src="images/konfigurasi-dns-server/18.png" alt="">
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                   <p>masuk ke file resolv.conf dengan printah 'nano /etc/resolv.conf' lalu ubah ip pada nameserver yang ada disana sesuai ip kalian</p>
+                                                    
+                                  <div class="post-title">
+                                    <h3>Itulah cara konfigurasi dns server dengan bind9 Jika sudah selesai cobalah untuk memasukkan nama domain kalian di web browser debian kalian usahakan tidak ada https:// di depan domain kalian</h3> 
+                                   </div>
+
+                                    
+                                  <!-- You May Also Like Start -->
+                                  <div class="you-may-also-like margin-top-50 margin-bottom-50">
+                                    <h3>TERIMA KASIH</h3>
+                                    </div>
+                                  <!-- You May Also Like End -->
+
+                       
+                       <!-- Footer Start -->
+                       <div class="col-md-12 page-body margin-top-50 footer">
+                          <footer>
+
+                          <div class="cen">Make With ❤ by <a href="https://instagram.com/iincen_" target="_blank">Cen</a></div>
+						  
+                           
+                         </footer>
+                       </div>
+                       <!-- Footer End -->
+                     
+                     
+                  </div>
+                  <!-- Content End -->
+                
+            </div>
+         </div>
+      </div>
+      
+    
+    
+    
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <!-- Back to Top End -->
+    
+    
+    <!-- All Javascript Plugins  -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/plugin.js"></script>
+    
+    <!-- Main Javascript File  -->
+    <script type="text/javascript" src="js/scripts.js"></script>
+
+    
+   </body>
+ 
+<!-- Mirrored from vincent.skuravi.com/blog/Konfigurasi-DNS-server.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Nov 2022 01:34:51 GMT -->
+</html>

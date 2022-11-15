@@ -1,0 +1,86 @@
+/*
+   
+    Template Name : Write - Simple Blog Template
+    Author : UiPasta Team
+    Website : https://www.uipasta.com/
+    Support : https://www.uipasta.com/contact-us/
+	
+	
+*/
+
+
+
+/*
+   
+   Table Of Content
+   
+   1. Preloader
+   2. Smooth Scroll
+   3. Scroll To Top
+   4. Ajaxchimp for Subscribe Form
+   5. Search Modal
+   6. Load More Post
+ 
+
+*/
+
+
+(function ($) {
+    'use strict';
+
+    jQuery(document).ready(function () {
+
+
+       /* Smooth Scroll */
+
+        $('a.smoth-scroll').on("click", function (e) {
+            var anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top - 50
+            }, 1000);
+            e.preventDefault();
+        });
+				 
+		
+		
+		
+       /* Scroll To Top */
+		
+        $(window).scroll(function(){
+        if ($(this).scrollTop() >= 500) {
+            $('.scroll-to-top').fadeIn();
+         } else {
+            $('.scroll-to-top').fadeOut();
+         }
+         });
+	
+	
+        $('.scroll-to-top').click(function(){
+          $('html, body').animate({scrollTop : 0},800);
+          return false;
+          });  
+		  
+		  
+	   
+		
+		
+
+       
+	   
+	   
+       /* Load More Post */	
+	   	
+        $("div.blog-post").slice(0, 4).show();
+          $("#load-more-post").on('click', function (e) {
+             e.preventDefault();
+             $("div.blog-post:hidden").slice(0, 1).slideDown(300);
+             if ($("div.blog-post:hidden").length == 0) {
+             $('#post-end-message').html('<div class="end">End</div>').fadeIn(800);
+             $("#load-more-post").fadeOut(100);
+              }
+             });
+              
+		   
+            });
+
+   })(jQuery);
